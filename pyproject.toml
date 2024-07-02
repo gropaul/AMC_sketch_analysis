@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "amc-sketch-analysis"
+version = "0.1.0"
+description = ""
+authors = ["PGross <paul.riedlingen@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.9"
+pandas = "^2.2.2"
+tqdm = "^4.66.4"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
