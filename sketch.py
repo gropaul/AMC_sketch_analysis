@@ -6,11 +6,13 @@ class AMSSketchSimple:
         # Initialize the sketch array
         self.array_size = array_size
         self.array = [0] * array_size
+        self.updates = 0
 
     def _get_bit_at_int(self, hash, bit):
         return (hash >> bit) & 1
 
     def update(self, hash, w):
+        self.updates += 1
         for i in range(self.array_size):
             bit = self._get_bit_at_int(hash, i)
             if bit == 0:

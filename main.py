@@ -44,12 +44,29 @@ def get_sketch_metrics(sketch: AMSSketchSimple) -> Dict[str, float]:
 
     # make the array in range [0, 1]
     norm_abs_array = abs_array / np.max(abs_array)
-
+    n_updates = sketch.updates
+    sqrt_n_updates = np.sqrt(n_updates)
+    log_n_updates = np.log(n_updates)
     return {
         'std': np.std(original_array),
         'std_norm': np.std(norm_array),
         'std_abs': np.std(abs_array),
         'std_norm_abs': np.std(norm_abs_array),
+        'range': np.max(original_array) - np.min(original_array),
+        'range_abs': np.max(abs_array) - np.min(abs_array),
+        'mean': np.mean(original_array),
+        'mean_abs': np.mean(abs_array),
+        'mean_norm': np.mean(norm_array),
+        'mean_norm_abs': np.mean(norm_abs_array),
+        'mean_per_updates': np.mean(original_array) / n_updates,
+        'mean_abs_per_updates': np.mean(abs_array) / n_updates,
+        'pow_2_mean_abs_per_updates': np.mean(abs_array) / n_updates ** 2,
+        'pow_3_mean_abs_per_updates': np.mean(abs_array) / n_updates ** 3,
+        'pow_4_mean_abs_per_updates': np.mean(abs_array) / n_updates ** 4,
+        'mean_abs_per_sqrt_updates': np.mean(abs_array) / sqrt_n_updates,
+        'mean_abs_per_log_updates': np.mean(abs_array) / log_n_updates,
+        'mean_norm_per_updates': np.mean(norm_array) / n_updates,
+        'mean_norm_abs_per_updates': np.mean(norm_abs_array) / n_updates,
     }
 
 
@@ -92,7 +109,7 @@ def main():
     data_space = get_data_space(n_rows, n_duplicates)
     df = run_experiment(data_space)
     # save as csv
-    df.to_csv('sketch_results.csv')
+    df.to_csv('sketch_results.csv', index=False)
 
 
 if __name__ == '__main__':
