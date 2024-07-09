@@ -5,7 +5,7 @@ COLOR_COLUMN = 'n_rows'  # different colors for different n_rows
 FEATURE_COLUMN = 'n_duplicates'  # the column to be plotted on the x-axis
 
 def main():
-    PATH = 'sketch_results.csv'
+    PATH = '../sketch_results.csv'
     df = pd.read_csv(PATH)
 
     columns = [column for column in df.columns if column not in [FEATURE_COLUMN]]

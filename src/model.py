@@ -6,7 +6,7 @@ from sklearn.ensemble import GradientBoostingRegressor
 from sklearn.metrics import mean_squared_error, r2_score
 
 # Load the dataset
-PATH = 'sketch_results.csv'
+PATH = '../sketch_results.csv'
 data = pd.read_csv(PATH)
 
 # Features and target variable

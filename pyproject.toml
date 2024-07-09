@@ -11,6 +11,7 @@ pandas = "^2.2.2"
 tqdm = "^4.66.4"
 matplotlib = "^3.9.0"
 scikit-learn = "^1.5.0"
+xxhash = "^3.4.1"
 
 
 [build-system]
